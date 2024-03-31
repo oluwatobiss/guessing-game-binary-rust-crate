@@ -40,7 +40,7 @@ fn main() {
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
                 println!("You win!");
-                break;
+                break; // `break` makes the `main` program exit the loop when user makes the right guess.
             }
         }
     }
