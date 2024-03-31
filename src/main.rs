@@ -2,13 +2,22 @@
 //   - The `use` statement brings the `io` library into the program's scope from the standard library (`std`).
 //   - The `::` syntax indicates that `io` is an associated item of the `std` library.
 use std::io;
+use rand::Rng; // `Rng` is a trait that must be in scope to use random number generators' methods.
 
 // Define a `main` function. (A `main` function is required in every executable Rust program. It serves as the program's entry point.)
 fn main() {
     // Use `println!` macros to print string values.
     println!("==Number Guessing Game Starts!==");
 
-    println!("Please input your guess:");
+    // Generate a random number between 1 and 100 inclusive.
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    // Debug code: Print the secret number.
+    println!("The secret number is: {secret_number}");
+
+    println!("Guess the computer's choice.");
+
+    println!("Tip: A number from 1 to 100.");
 
     // Create a mutable variable and bind it to an empty string.
     let mut guess = String::new();
