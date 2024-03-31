@@ -13,7 +13,6 @@ fn main() {
     // Create a mutable variable and bind it to an empty string.
     let mut guess = String::new();
 
-
     io::stdin() // Use the `stdin()` function to handle a user's standard input from the terminal.
         .read_line(&mut guess) // Get whatever the user types into the standard input and append it to the `guess` string. (Note: `read_line` returns a `Result` value.)
         .expect("Failed to read line"); // Use the `Result` value's `expect()` method to handle any error `read_line` may return.
