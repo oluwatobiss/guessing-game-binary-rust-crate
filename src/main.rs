@@ -29,7 +29,10 @@ fn main() {
             .expect("Failed to read line"); // Use the `Result` value's `expect()` method to handle any error `read_line` may return.
 
         // Convert the `guess` string to a real number type.
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         // Print out the user's guess.
         println!("You guessed: {guess}");
