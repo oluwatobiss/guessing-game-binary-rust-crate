@@ -16,27 +16,29 @@ fn main() {
     // Debug code: Print the secret number.
     println!("The secret number is: {secret_number}");
 
-    println!("Guess the computer's choice.");
+    loop {
+        println!("Guess the computer's choice.");
 
-    println!("Tip: A number from 1 to 100.");
+        println!("Tip: A number from 1 to 100.");
 
-    // Create a mutable variable and bind it to an empty string.
-    let mut guess = String::new();
+        // Create a mutable variable and bind it to an empty string.
+        let mut guess = String::new();
 
-    io::stdin() // Use the `stdin()` function to handle a user's standard input from the terminal.
-        .read_line(&mut guess) // Get whatever the user types into the standard input and append it to the `guess` string. (Note: `read_line` returns a `Result` value.)
-        .expect("Failed to read line"); // Use the `Result` value's `expect()` method to handle any error `read_line` may return.
+        io::stdin() // Use the `stdin()` function to handle a user's standard input from the terminal.
+            .read_line(&mut guess) // Get whatever the user types into the standard input and append it to the `guess` string. (Note: `read_line` returns a `Result` value.)
+            .expect("Failed to read line"); // Use the `Result` value's `expect()` method to handle any error `read_line` may return.
 
-    // Convert the `guess` string to a real number type.
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // Convert the `guess` string to a real number type.
+        let guess: u32 = guess.trim().parse().expect("Please type a number!");
 
-    // Print out the user's guess.
-    println!("You guessed: {guess}");
+        // Print out the user's guess.
+        println!("You guessed: {guess}");
 
-    // Match the comparison of guess and secret_number with the arm's patterns.
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        // Match the comparison of guess and secret_number with the arm's patterns.
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => println!("You win!"),
+        }
     }
 }
