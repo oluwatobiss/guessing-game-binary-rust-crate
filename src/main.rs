@@ -31,7 +31,7 @@ fn main() {
         // Convert the `guess` string to a real number type.
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => continue, // The '_' syntax matches all error values.
         };
 
         // Print out the user's guess.
