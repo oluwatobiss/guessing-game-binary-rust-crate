@@ -13,9 +13,6 @@ fn main() {
     // Generate a random number between 1 and 100 inclusive.
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    // Debug code: Print the secret number.
-    println!("The secret number is: {secret_number}");
-
     loop {
         println!("Guess the computer's choice.");
 
